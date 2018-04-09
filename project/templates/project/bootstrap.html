@@ -1,0 +1,412 @@
+
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+
+    {# Custom CSS#}
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,400italic|Work+Sans:300,400,500,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'css/toolkit-startup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/application-startup.css' %}">
+    <link href="assets/css/toolkit-startup.css" rel="stylesheet">
+    <link href="assets/css/application-startup.css" rel="stylesheet">
+
+    <title>
+
+        #econobilidade &middot;
+
+    </title>
+
+
+      <link href='https://fonts.googleapis.com/css?family=Lora:400,400italic|Work+Sans:300,400,500,600' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="{% static 'css/toolkit-startup.css' %}">
+      <link rel="stylesheet" href="{% static 'css/application-startup.css' %}">
+
+
+
+
+    <style>
+      /* note: this is a hack for ios iframe for bootstrap themes shopify page */
+      /* this chunk of css is not part of the toolkit :) */
+      /* …curses ios, etc… */
+      @media (max-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+        body {
+          width: 1px;
+          min-width: 100%;
+          *width: 100%;
+        }
+        #stage {
+          height: 1px;
+          overflow: auto;
+          min-height: 100vh;
+          -webkit-overflow-scrolling: touch;
+        }
+      }
+    </style>
+  </head>
+
+
+<body>
+
+  <link href="https://api.motion.ai/sdk/webchat.css" rel="stylesheet" type="text/css">
+  <script src="https://api.motion.ai/sdk/webchat.js"></script>
+  <script>
+     motionAI_Init('74707?color=3588eb&sendBtn=ENVIE&inputBox=Vamos%20transformar%20seus%20negocios%3F&token=8c517200d8aec13ffde3e957beb8cf1c',true,400,470,'data:image/jpeg;base64,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');
+     /* You may also invoke motionAI_Open() to manually open the modal. */
+  </script>
+
+
+<div class="stage-shelf stage-shelf-right hidden" id="sidebar">
+  <ul class="nav nav-bordered nav-stacked flex-column">
+    <li class="nav-header">Examples</li>
+    <li class="nav-item">
+      <a class="nav-link active" href="index.html">#econobilidade</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'prediction' %}">Prever seu Faturamento</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="bold/index.html">Bold</a>
+    </li>
+    <li class="nav-divider"></li>
+    <li class="nav-header">Docs</li>
+    <li class="nav-item">
+      <a class="nav-link" href="docs/index.html">Toolkit</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="http://getbootstrap.com">Bootstrap</a>
+    </li>
+  </ul>
+</div>
+
+<div class="stage" id="stage">
+
+
+{% load staticfiles %}
+<img src="{% static "images/#eco.png" %}" height="400" width="100%" alt="My image"/>
+
+
+<div class="block block-inverse block-fill-height app-header"
+     style="background-image: url(assets/img/startup-1.jpg);">
+
+  <div class="container py-4 fixed-top app-navbar">
+  <nav class="navbar navbar-transparent navbar-padded navbar-expand-md">
+    <a class="navbar-brand mr-auto" href="https://econobilidade.com">
+      <strong style="background: #fff; padding: 12px; border-radius: 4px; color: #28669F;">Nossa tecnologia</strong>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-target="#stage"
+      data-toggle="stage"
+      data-distance="-250">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="block-xs-middle pb-5">
+      <div class="container">
+
+      <ul class="navbar-nav">
+        <li class="nav-item px-1 ">
+          <a class="nav-link" href="{% url 'prediction' %}">Prever Seu Faturamento</a>
+        </li>
+        <li class="nav-item px-1 ">
+          <a class="nav-link" href="{% url 'stocks' %}">Invista em Açoes</a>
+        </li>
+        <li class="nav-item px-1 ">
+          <a class="nav-link" href="{% url 'migrar' %}">Migre sua Contabilidade</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+  <img class="app-graph"  src="{% static "images/startup-0.svg" %}">
+  <div class="block-xs-middle pb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 col-lg-6">
+          <h1 class="block-titleData frequency">Contabilidade Inteligente</h1>
+          <p class="lead mb-4 text-muted">Entenda seus resultados e como voce será afetado pelo desempenho da economia conosco! Serviços para empresas e contadores!</p>
+          <button  class="btn btn-primary btn-lg"  onclick="location.href = 'https://nexthinking.com/2017/06/27/smart-ratio/';">Saiba mais</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="block block-secondary app-iphone-block">
+  <div class="container">
+    <div class="row app-align-center">
+
+      <div class="col-sm-5 d-none d-md-block">
+
+        <img src="{% static "images/startup-2.jpg" %}" alt="My image"/>
+      </div>
+
+      <div class="col-md-6 col-sm-12 ml-auto">
+        <h6 class="text-muted text-uppercase">Informacao poderosa</h6>
+        <h2>Tome decisoes com dados historicos &amp; real time data.</h2>
+        <p class="lead mb-4">Combinamos eventos imediatos em tempo real com dados históricos ricos para ajudar a responder as questões mais difíceis sobre retenção de clientes, crescimento e investimentos.</p>
+        <div class="row d-none d-md-flex">
+          <div class="col-sm-6 mb-3">
+            <h5>Data frequency</h5>
+            <p>Sua informacao contabil é o maior acervo gratuito de big data real que antes era desperdicado e agora pode mudar sua vida! <a href="https://nexthinking.com/2017/07/18/como-as-empresas-usam-a-analise-preditiva-na-tomada-de-decisao/" class="text-primary">Learn more.</a></p>
+          </div>
+          <div class="col-sm-6">
+            <h5>Reliability &amp; uptime</h5>
+            <p>Suas informacoes e declaracoes fiscais sao processadas por algoritmos de aprendizado reduzindo riscos e aumentando sua rentabilidade dentro da Lei<a href="https://econobilidade.com/2017/06/21/the-importance-of-accounting/" class="text-primary">Learn more</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="block block-inverse block-secondary app-code-block">
+  <div class="container">
+    <div class="row app-align-center">
+      <div class="col-md-6 order-2 order-md-1">
+        <h6 class="text-muted text-uppercase">Importe seus dados e saia na frente</h6>
+        <h2>Entendemos o seu mercado e utilizamos os dados economicos e da concorrencia a seu favor</h2>
+        <p class="lead mb-4 text-muted">Chega de contratar consultorias caras e que nao podem provar seus resultados no curto prazo</p>
+        <button class="btn btn-secondary btn-lg btn-borderless" onclick="location.href ='https://nexthinking.com';">Read our docs
+        </button>
+      </div>
+      <div class="col-md-5 ml-auto order-1 order-md-2">
+        <pre class="app-code">
+<span>1</span> <span>#econobilidade</span> “Onde gastamos o dinheiro?”
+<span>2</span>
+<span>3</span>  {
+<span>4</span>    "Hipoteses": {
+<span>5</span>      "Administrativo": "Marketing, estoque?",
+<span>6</span>      "Vendas e markerting": "Impostos? Area administrativa? Pessoal?",
+<span>7</span>    }
+<span>8</span>    "realidade": {
+<span>9</span>      "Administrativo": "Acho que foram os juros bancarios",
+<span>10</span>      "Vendas e Markerting": "Acho que temos que aumentar os investimentos para aumentar as vendas",
+<span>11</span>    }
+<span>12</span>    "CEO": {
+<span>13</span>      "OTIMISTA": "PRECISAMOS GASTAR MAIS, mudar a estrategia e se necessario, vamos nos endividar!",
+<span>14</span>      "Pessimista": "Vamos demitir alguns funcionarios e mudar a estrategia e infelizmente aumentar o endividamento"
+<span>15</span>    }
+<span>16</span>  }</pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="block block-inverse app-high-praise"
+     style="background-image: url(assets/img/startup-3.jpg);">
+    <div class="container">
+      <div class="row app-align-center py-3 justify-content-end">
+        <div class="col-sm-7 col-md-5 py-5">
+          <h6 class="text-muted text-uppercase mb-2">Alto Impacto</h6>
+          <h2 class="mb-4">“#econobilidade é incrível. Decisões que costumavam levar semanas, agora consomem minutos e está disponível para todos na minha equipe.”</h2>
+          <p class="mb-4 text-muted">Cindy Smith, founder of Cool Startup</p>
+        </div>
+      </div>
+  </div>
+</div>
+
+<div class="block app-ribbon py-5">
+  <div class="container text-xs-center">
+    <img src="{% static "images/startup-4.svg" %}">
+    <img src="{% static "images/startup-5.svg" %}">
+    <img src="{% static "images/startup-6.svg" %}">
+    <img src="{% static "images/startup-7.svg" %}">
+    <img src="{% static "images/startup-8.svg" %}">
+  </div>
+</div>
+
+<div class="block block-secondary app-block-marketing-grid">
+  <div class="container text-xs-center">
+
+    <div class="row mb-5 justify-content-center">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <h6 class="text-muted text-uppercase mb-2">Nada para instalar</h6>
+        <h2 class="mb-4">Sua vida mais facil para investir seu tempo no que realmente importa!</h2>
+      </div>
+    </div>
+
+    <div class="row app-marketing-grid">
+      <div class="col-md-4 px-4 mb-5">
+        <img class="mb-1" src="{% static "images/startup-9.svg" %}">
+        <p><strong>24/7 support.</strong> Estamos sempre aqui para te ajudar.</p>
+      </div>
+      <div class="col-md-4 px-4 mb-5">
+        <img class="mb-1" src="{% static "images/startup-10.svg" %}">
+        <p><strong>E-commerce.</strong> Importamos suas notas e ja criamos dados para analisar</p>
+      </div>
+      <div class="col-md-4 px-4 mb-5">
+        <img class="mb-1" src="{% static "images/startup-11.svg" %}">
+        <p><strong>Turnaround.</strong> Informacao e muito valiosa para ficar parada.</p>
+      </div>
+    </div>
+
+    <div class="row app-marketing-grid">
+      <div class="col-md-4 px-4 mb-5">
+        <img class="mb-1" src="{% static "images/startup-12.svg" %}">
+        <p><strong>Previsões!</strong> Sem limite de utilizacao</p>
+      </div>
+      <div class="col-md-4 px-4 mb-5">
+        <img class="mb-1" src="{% static "images/startup-13.svg" %}">
+        <p><strong>Mobile apps.</strong> Aguarde nossas solucoes no celular</p>
+      </div>
+      <div class="col-md-4 px-4 mb-5">
+        <img class="mb-1" src="{% static "images/startup-14.svg" %}">
+        <p><strong>Secure connections.</strong> Sua informacao bem cuidada</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="block app-price-plans">
+  <div class="container text-center">
+
+    <div class="row mb-5 justify-content-center">
+      <div class="col-10 col-md-8 col-lg-6">
+        <a href="#planos"></a>
+        <h6 class="text-muted text-uppercase mb-2">#econobilidade</h6>
+        <h2>Custos acessiveis para todo tamanho e realidade de empresa!</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 px-4 pb-2 mb-5">
+        <div class="px-2 mb-2">
+          <h6 class="text-muted text-uppercase mb-4">Personal</h6>
+          <img class="mb-4" src="{% static "images/startbusiness.png" %}"height="200" width="90%" alt="My image">
+          <p class="pb-2">Perfeito para Start-ups! Comece agora mesmo a crescer !</p>
+        </div>
+
+        <ul class="list-unstyled list-bordered text-xs-left my-4">
+          <li class="py-4"><strong>Melhor Preço Garantido!</strong> Apenas R$ 49,90 por mês</li>
+          <li class="py-4"><strong>O Basico em tempo real</strong> Balanços e declaracoes fiscais ilimitados</li>
+          <li class="py-4"><strong>Seu setor avaliado e comparado</strong> Relatorios de performance do setor</li>
+        </ul>
+
+        <button class="btn btn-lg btn-primary btn-block" onclick="location.href = {% url 'myplanmail' %};">Try it now</button>
+      Para empresas que iniciaram a faturar ha poucos meses ou ainda nao faturam<span class="d-none d-xl-inline"></span>
+        </button>
+      </div>
+
+      <div class="col-md-4 px-4 pb-2 mb-5">
+        <div class="px-2">
+          <h6 class="text-muted text-uppercase mb-4">Business</h6>
+          <img class="mb-4" src="{% static "images/Business.png" %}"height="200" width="90%" alt="My image">
+          <p class="pb-2">ideal para pequenas empresas com ate 3 funcionarios!</p>
+        </div>
+
+        <ul class="list-unstyled list-bordered text-xs-left my-4">
+          <li class="py-4"><strong>Best Price</strong> Apenas R$ 199,00 mensais!</li>
+          <li class="py-4"><strong>No Risk!</strong> Analise de Risco Fiscal com recomendaçoes em tempo real</li>
+          <li class="py-4"><strong>What is my Performance?</strong> Comparacao com empresas do mesmo segmento</li>
+          <li class="py-4"><strong>Public</strong> Valuation da empresa e forecast </li>
+            <li class="py-4"><strong>Reports</strong> Relatorios de analise de rentabilidade </li>
+            <li class="py-4"><strong>Investments</strong> Recomendacao de Investimentos </li>
+                <li class="py-4"><strong>Churning</strong> Analise de churning (Perda de Clientes) e fraudes através dos dados contabeis com 87% de assertividade </li>
+                <li class="py-4"><strong>Cash Flow</strong> fluxo de caixa real e projetado com recomendacoes </li>
+                <li class="py-4"><strong>Accounting is Real</strong> Seu balanço pronto em apenas alguns cliques com revisao de contadores experientes </li>
+                <li class="py-4"><strong>Big Data</strong> Big Data Contabil com utilizacao de Econometria</li>
+
+        </ul>
+
+        <button class="btn btn-lg btn-primary btn-block" onclick="location.href = {% url 'Business' %};">Try it now</button>
+        Para empresas que existem ha pouco mais de 1 ano e que querem crescer mais rapido!<span class="d-none d-xl-inline"></span>
+        </button>
+      </div>
+
+      <div class="col-md-4 px-4 pb-1 mb-5">
+        <div class="px-2">
+          <h6 class="text-muted text-uppercase mb-4">Corporate</h6>
+          <img class="mb-4" src="{% static "images/Corporate.png" %}"height="200" width="90%" alt="My image">
+
+          <p class="pb-2">Um plano repleto de solucoes com customizacoes para sua realidade!</p>
+        </div>
+
+        <ul class="list-unstyled list-bordered text-xs-left my-4">
+          <li class="py-4"><strong>Unlimited</strong> Planos a partir de R$ 1.199,00 com ate 10 funcionarios e faturamento de ate 10 milhoes</li>
+          <li class="py-4"><strong>Special Reports</strong> Relatorios customizados para sua realidade</li>
+          <li class="py-4"><strong>24/7</strong> Equipe de tributaristas que estudam seu setor DIARIAMENTE</li>
+          <li class="py-4"><strong>DAILY</strong> Forecast diario e Analise de Oportunidades</li>
+          <li class="py-4"><strong>SMART PEOPLE</strong> Analise de Turnover e performance de funcionarios</li>
+          <li class="py-4"><strong>AUDITING</strong> Seu financeiro auditado em tempo real, adeus recursos mal empregados</li>
+          <li class="py-4"><strong>To do</strong> Suas declaracoes fiscais em sinergia com seu negocio, avaliamos as oportunidades a cada nota emitida</li>
+          <li class="py-4"><strong>To do2</strong> Elimine a zero seus custos com sistemas paralelos, nossos algoritmos automatizam seus processos</li>
+          <li class="py-4"><strong>To do3</strong> Equipe de advogados e despachantes prontos para lhe servir sem custo adicional</li>
+
+        </ul>
+
+        <button class="btn btn-lg btn-primary btn-block" onclick="location.href = {% url 'Corporate' %};">Try it now</button>
+          ideal para empresas maduras que ja existem ha mais de 5 anos!<span class="d-none d-xl-inline"></span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="block block-inverse app-footer">
+ <div class="container">
+    <div class="row">
+      <div class="col-md-5 mb-5">
+        <ul class="list-unstyled list-spaced">
+          <li class="mb-2"><h6 class="text-uppercase">About</h6></li>
+          <li class="text-muted">
+             We’ve been working on #econobilidade for the better part of a decade and are super proud of what we’ve created. If you’d like to learn more, or are interested in a job, contact us anytime at <a href="mailto: chemalle@econobilidade.com">chemalle@econobilidade.com</a>.
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-2 ml-auto mb-5">
+        <ul class="list-unstyled list-spaced">
+          <li class="mb-2"><h6 class="text-uppercase">Product</h6></li>
+          <li class="text-muted">Features</li>
+          <li class="text-muted">Examples</li>
+          <li class="text-muted">Tour</li>
+          <li class="text-muted">Gallery</li>
+        </ul>
+      </div>
+      <div class="col-md-2 mb-5">
+        <ul class="list-unstyled list-spaced">
+          <li class="mb-2"><h6 class="text-uppercase">Apis</h6></li>
+          <li class="text-muted">Rich data</li>
+          <li class="text-muted">Simple data</li>
+          <li class="text-muted">Real time</li>
+          <li class="text-muted">Social</li>
+        </ul>
+      </div>
+      <div class="col-md-2 mb-5">
+        <ul class="list-unstyled list-spaced">
+          <li class="mb-2"><h6 class="text-uppercase">Legal</h6></li>
+          <li class="text-muted">Terms</li>
+          <li class="text-muted">Legal</li>
+          <li class="text-muted">Privacy</li>
+          <li class="text-muted">License</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/toolkit.js"></script>
+    <script src="js/application.js"></script>
+    <script>
+      // execute/clear BS loaders for docs
+      $(function(){while(window.BS&&window.BS.loader&&window.BS.loader.length){(window.BS.loader.pop())()}})
+    </script>
+</body>
+</html>

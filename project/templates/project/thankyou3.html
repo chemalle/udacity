@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="jumbotron text-xs-center">
+  <h1 class="display-3">Thank You!</h1>
+  <p class="lead"><strong>Obrigado por utilizar nossos serviços, acompanhe seu e-mail</strong> Para maiores informaçoes envie e-mail para nosso Customer Service.</p>
+  <hr>
+  <p>
+    Quer ver a <strong>previsão</strong>? <a href="{% url 'forecast' %}">Clique aqui para receber esta <strong>previsão</strong> no seu e-mail!</a>
+  </p>
+  <p class="lead">
+    <a class="btn btn-primary btn-sm" href="{% url 'forecast' %}" role="button">Clique aqui para receber a <strong>previsão</strong> no seu e-mail</a>
+
+<h1>{{yes}}</h1>
+  </p>
+</div>
+
+
+{% endblock %}

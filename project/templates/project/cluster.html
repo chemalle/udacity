@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<html>
+
+<div class="wrapper">
+    <div class="header">
+
+    </div>
+
+<h1>Tendência Preditiva</h1>
+
+<p>{{ talk }}</p>
+
+{% load staticfiles %}
+<head>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <td class=xl77 style='border-top:none'>   {{kluster|safe}} </td>
+
+<br>
+<br>
+<p>Veja quantos clusters tem a sua carteira<br>
+  Quanto mais clusters menor o risco do seu investimento, aumentando a diversificacao</p><br>
+
+<p>Para um resultado <strong>ainda melhor</strong> verifique se todos os ativos de sua carteira tem boa recomendaçao na ferramenta de recomendaçao de ativos</p>
+
+<form action="{% url 'udacity' %}">
+    <input type="submit" value="Analise seus ativos" />
+</form>
+
+<br>
+<br>
+</head>
+<body>
+
+  {% endblock %}

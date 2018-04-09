@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+
+<html>
+
+{% load staticfiles %}
+<img class="app-graph"  src="{% static "images/startup-0.svg" %}">
+
+<head>
+<style>
+
+
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.bg {
+    /* The image used */
+
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+
+
+<html>
+    <h1>Chega de investir no escuro, conheça o VAR!</h1>
+    <p>O VAR propicia segurança absoluta e controle de risco retorno como você nunca teve ao realizar seus investimentos em ações.
+    Ao inserir o simbolo da ação ele calcula qual o valor em risco da sua aplicação, ou seja, com base na volatilidade do ativo
+    escolhido ja se conhece na hora qual é a perda máxima para se atingir o seu retorno, garantindo maxima proteçāo para seu
+    dinheiro sem se preocupar com as abruptas oscilações da bolsa que sao inevitáveis e saudáveis para novos entrantes!</p>
+    <p style="color:red;"> Este mesmo algoritmo consegue detectar na sua empresa qual o valor maximo do prejuizo potencial ao longo
+    de 18 meses em cenarios conturbados, tornando sua decisao sobre investir mais ou menos no seu patrimonio tambem muito mais seguro (este ultimo apenas
+    para clientes pagantes!)</p>
+
+<body style="background-color:LightSteelBlue;"><div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.9";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+<form method="post" action="">{% csrf_token %}
+<button onclick="goBack()">Go Back</button>
+    Ola Investidor e Cliente! Insira o simbolo do ativo listado em bolsa para entender a potencial perda em 12 meses para cada 10 mil reais investidos {{ form.as_p }}
+    <input type="submit" value="Calcule Agora" /><p><b>exemplo: Para vale digite vale5 </b></p>
+</form>
+
+ <p style="color:red;"> Consulte qualquer ativo listado no Brasil ou nos EUA, inclusive de empresas chinesas!</p>
+ <p><b>*Nos próximos meses voce podera calcular o risco da sua empresa tambem em comparacao com seus concorrentes.
+ <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+<script type="IN/Share" data-url="https://www.linkedin.com/company-beta/2516861/" data-counter="right"></script>
+<div class="fb-like" data-href="https://www.facebook.com/nexthinking/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+
+
+
+<img src="static/media/images.png" alt="var" align="bottom" style="width:204px;height:128px">
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+{% load staticfiles %}
+
+<form method="post" novalidate>
+  {% csrf_token %}
+  {{ site2.as_p }}
+  <button type="submit">Submit</button>
+</form>
+
+
+
+
+
+
+
+
+
+{% endblock %}

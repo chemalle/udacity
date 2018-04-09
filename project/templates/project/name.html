@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<html>
+
+<div class="wrapper">
+    <div class="header">
+
+    </div>
+
+<h1>Tendência Preditiva</h1>
+
+<p>{{ talk }}</p>
+
+{% load staticfiles %}
+<head>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <td class=xl77 style='border-top:none'>   {{barchart|safe}} </td>
+
+<br>
+&nbsp <strong>SMA3</strong> ==> indica que o ativo esta em tendencia de alta no curtissimo prazo. Otimo momento para investir!
+<br>
+&nbsp <strong>Long Term</strong> ==> indica que o ativo é excelente para ser mantido na carteira mas não espere retornos muito rapido.
+<br>
+&nbsp <strong>downward trend</strong> ==> indica que o ativo esta em tendencia de baixa , portanto o risco retorno nao é adequado para investimento. Apenas especulaçao.
+<p>Esta sugestao é valida caso o MSE seja inferior a 1.<br>
+   O MSE desta previsão resultou em {{ MSE }}</p><br>
+
+<p>Esta sugestao tem {{ EVS }} de assertividade!</p>
+<br>
+<br>
+</head>
+<body>
+
+  {% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'accounting/base.html' %}
+
+{% block content %}
+
+
+<div class="jumbotron text-xs-center">
+  <h1 class="display-3">Obrigado!</h1>
+  <p class="lead"><strong>Duvidas envie e-mail para </strong> chemalle@econobilidade.com</p>
+  <hr>
+  <p>
+    Having trouble? <a href="{% url 'login' %}">Contate-nos sempre que quiser!</a>
+  </p>
+  <p class="lead">
+    <a class="btn btn-primary btn-sm" href="{% url 'login' %}" role="button">Continuar na homepage</a>
+  </p>
+</div>
+
+
+{% endblock %}

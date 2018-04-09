@@ -1,0 +1,21 @@
+{% extends 'accounting/base.html' %}
+
+
+{% block content %}
+  <div class="jumbotron">
+
+    <h2>Por favor Login: </h2>
+    <h3>(Voce precisa se registrar primeiro. Qualquer problema contate-nos pelo chemalle@econobilidade.com)</h3>
+    {% if form.errors %}
+        <p>Seu usuario e senha nao conferem. Verifique se esta utilizando o nome de usuario cadastrado. Lembre-se, nao é seu e-mail</p>
+    {% endif %}
+
+    <form method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+        {{form.as_p}}
+
+        <input type="submit" class='btn btn-primary' value="Login" />
+        <input type="hidden" name="next" value="{{ next }}" />
+    </form>
+  </div>
+{% endblock %}

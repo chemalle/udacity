@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Share a post{% endblock %}
+
+{% block content %}
+    {% if sent %}
+        <h1>E-mail successfully sent</h1>
+        <p>"{{ post.title }}" was successfully sent by neXThinking.</p>
+    {% else %}
+        <h1>Receba e envie seu Demonstrativo Contabil por e-mail</h1>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Above_Gotham.jpg/300px-Above_Gotham.jpg" alt="">
+
+        <form action="." method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <input type="submit" value="Send e-mail">
+        </form>
+    {% endif %}
+{% endblock %}

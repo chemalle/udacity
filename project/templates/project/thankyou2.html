@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="jumbotron text-xs-center">
+  <h1 class="display-3">Thank You!</h1>
+  <p class="lead"><strong>Obrigado por utilizar nossos serviços, acompanhe seu e-mail</strong> Para maiores informaçoes envie e-mail para nosso Customer Service.</p>
+  <hr>
+  <p>
+    Quer ver a recomendação? <a href="{% url 'recommendation' %}">Clique aqui para receber esta recomendação no seu e-mail!</a>
+  </p>
+  <p class="lead">
+    <a class="btn btn-primary btn-sm" href="{% url 'recommendation' %}" role="button">Clique aqui para receber a <strong>recomendação</strong> no seu e-mail</a>
+
+<h1>{{yes}}</h1>
+  </p>
+</div>
+
+
+{% endblock %}

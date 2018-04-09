@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<html>
+<h1>Sua Previsão de Faturamento</h1>
+
+<p>{{ talk }}</p>
+
+{% load staticfiles %}
+<head>
+<img class="app-graph"  src="http://nuvest.net/wp-content/uploads/2017/07/creating-a-financial-forecast-busines-plan.jpg" height="42" width="42">
+  <br>
+
+  <td class=xl78 style='border-top:none'>{{F}}</td>
+
+
+
+<p>Esta previsao nao conseguiu se aprofundar com maior assertividade pois ainda estamos reunindo dados de suas vendas recentes ou mesmo do seu 'churning rate'. Em breve as previsoes terao 95 a 98% de assertividade</p>
+<p>Sem todas as informacoes este forecast tem 87% de assertividade!</p>
+<br>
+<a href="https://youtu.be/Q0brUMWilXk">Conheça a empresa dona da tecnologia #econobilidade</a>
+
+</head>
+<body>
+
+  {% endblock %}
